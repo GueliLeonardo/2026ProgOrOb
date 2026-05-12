@@ -1,0 +1,22 @@
++-----------------------------+
+|             UI              |
++-----------------------------+
+| - playlists : list          |
+| - musicas : list            |
+| - itens : list              |
++-----------------------------+
+| + inserir_playlist()        |
+| + listar_playlist()         |
+| + atualizar_playlist()      |
+| + excluir_playlist()        |
+| + inserir_musica()          |
+| + listar_musica()           |
+| + atualizar_musica()        |
+| + excluir_musica()          |
+| + inserir_item()            |
+| + listar_item()             |
+| + atualizar_item()          |
+| + excluir_item()            |
+| + listar_musicas_playlist() |
+| + main()                    |
++-----------------------------+

@@ -1,0 +1,19 @@
++----------------------+
+|          UI          |
++----------------------+
+| - times : list       |
+| - jogadores : list   |
++----------------------+
+| + inserir_time()     |
+| + listar_time()      |
+| + atualizar_time()   |
+| + excluir_time()     |
+| + inserir_jogador()  |
+| + listar_jogador()   |
+| + atualizar_jogador()|
+| + excluir_jogador()  |
+| + listar_jogadores_  |
+|   do_time()          |
+| + transferir_jogador()|
+| + main()             |
++----------------------+
