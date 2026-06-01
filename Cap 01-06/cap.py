@@ -21,7 +21,7 @@ class produto: #A classe é um tipo de variável
     def get_nome(self):return self.__nome
     def get_preco(self): return self.__preco
     def get_avaliacao(self): return self.__avaliacao
-        
+
 prod = produto() #Nome da classe seguido de () chama o __init__
 prod.set_id(5)
 prod.set_nome("Cafézinho")
