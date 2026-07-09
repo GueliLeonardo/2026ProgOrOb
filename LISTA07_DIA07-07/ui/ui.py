@@ -19,16 +19,20 @@ class UI:
             elif opcao == 2:
                 UI.cliente_listar()
             elif opcao == 3:
-                UI.cliente_atualizar()
+                UI.cliente_pesquisar_nome()
             elif opcao == 4:
-                UI.cliente_excluir()
+                UI.cliente_atualizar()
             elif opcao == 5:
-                UI.servico_inserir()
+                UI.cliente_excluir()
             elif opcao == 6:
-                UI.servico_listar()
+                UI.servico_inserir()
             elif opcao == 7:
-                UI.servico_atualizar()
+                UI.servico_listar()
             elif opcao == 8:
+                UI.servico_pesquisar_descricao()
+            elif opcao == 9:
+                UI.servico_atualizar()
+            elif opcao == 10:
                 UI.servico_excluir()
             elif opcao == 0:
                 print("Encerrando o sistema. Até logo!")
@@ -40,12 +44,14 @@ class UI:
         print("\n===== MENU =====")
         print("1 - Inserir cliente")
         print("2 - Listar clientes")
-        print("3 - Atualizar cliente")
-        print("4 - Excluir cliente")
-        print("5 - Inserir serviço")
-        print("6 - Listar serviços")
-        print("7 - Atualizar serviço")
-        print("8 - Excluir serviço")
+        print("3 - Pesquisar cliente por nome")
+        print("4 - Atualizar cliente")
+        print("5 - Excluir cliente")
+        print("6 - Inserir serviço")
+        print("7 - Listar serviços")
+        print("8 - Pesquisar serviço por descrição")
+        print("9 - Atualizar serviço")
+        print("10 - Excluir serviço")
         print("0 - Sair")
         try:
             return int(input("Escolha uma opção: "))
@@ -55,11 +61,10 @@ class UI:
     @staticmethod
     def cliente_inserir():
         print("\n-- Inserir Cliente --")
-        id = int(input("Id: "))
         nome = input("Nome: ")
         email = input("Email: ")
         fone = input("Telefone: ")
-        Service.cliente_inserir(id, nome, email, fone)
+        Service.cliente_inserir(0, nome, email, fone)
         print("Cliente inserido com sucesso!")
 
     @staticmethod
@@ -68,6 +73,16 @@ class UI:
         clientes = Service.cliente_listar()
         if not clientes:
             print("Nenhum cliente cadastrado.")
+        for c in clientes:
+            print(c)
+
+    @staticmethod
+    def cliente_pesquisar_nome():
+        print("\n-- Pesquisar Cliente por Nome --")
+        iniciais = input("Iniciais do nome: ")
+        clientes = Service.cliente_listar_nome(iniciais)
+        if not clientes:
+            print("Nenhum cliente encontrado.")
         for c in clientes:
             print(c)
 
@@ -107,6 +122,16 @@ class UI:
         servicos = Service.servico_listar()
         if not servicos:
             print("Nenhum serviço cadastrado.")
+        for s in servicos:
+            print(s)
+
+    @staticmethod
+    def servico_pesquisar_descricao():
+        print("\n-- Pesquisar Serviço por Descrição --")
+        iniciais = input("Iniciais da descrição: ")
+        servicos = Service.servico_listar_descricao(iniciais)
+        if not servicos:
+            print("Nenhum serviço encontrado.")
         for s in servicos:
             print(s)
 

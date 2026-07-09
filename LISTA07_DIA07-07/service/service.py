@@ -24,6 +24,10 @@ class Service:
         return Service.__cliente_dao.listar_id(id)
 
     @staticmethod
+    def cliente_listar_nome(iniciais: str) -> list:
+        return Service.__cliente_dao.listar_nome(iniciais)
+
+    @staticmethod
     def cliente_atualizar(id: int, nome: str, email: str, fone: str):
         cliente = Cliente(id, nome, email, fone)
         Service.__cliente_dao.atualizar(cliente)
@@ -45,6 +49,10 @@ class Service:
     @staticmethod
     def servico_listar_id(id: int) -> Servico:
         return Service.__servico_dao.listar_id(id)
+
+    @staticmethod
+    def servico_listar_descricao(iniciais: str) -> list:
+        return Service.__servico_dao.listar_descricao(iniciais)
 
     @staticmethod
     def servico_atualizar(id: int, descricao: str, valor: float):

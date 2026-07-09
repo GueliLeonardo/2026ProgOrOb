@@ -10,7 +10,11 @@ class ServicoDAO:
         self.__abrir()
 
     def inserir(self, obj: Servico):
-        """Insere um novo objeto Servico na lista e salva no arquivo."""
+        """Insere um novo objeto Servico na lista, gerando automaticamente o id, e salva no arquivo."""
+        novo_id = 1
+        if self.__objetos:
+            novo_id = max(o.get_id() for o in self.__objetos) + 1
+        obj.set_id(novo_id)
         self.__objetos.append(obj)
         self.__salvar()
 
@@ -24,6 +28,10 @@ class ServicoDAO:
             if obj.get_id() == id:
                 return obj
         return None
+
+    def listar_descricao(self, iniciais: str) -> list:
+        """Retorna a lista de serviços cujas descrições iniciam com o valor informado."""
+        return [obj for obj in self.__objetos if obj.get_descricao().startswith(iniciais)]
 
     def atualizar(self, obj: Servico):
         """Atualiza os dados de um objeto Servico já existente na lista."""
